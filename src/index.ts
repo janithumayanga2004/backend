@@ -11,15 +11,14 @@ import labourRouter from "./routes/labourRoute"
 import categoryRouter from "./routes/categoryRoute"
 import agriculturalImplementsRouter from "./routes/agriculturalImplementsRoute"
 import harvestRouter from "./routes/harvestRoute";
-import attendanceRouter from "./routes/attendanceRoute";
 
 dotenv.config()
 
 const PORT = process.env.PORT
 const MONGO_URI = process.env.MONGO_URI as string
-
 const app = express()
 
+app.use(express.json()); 
 app.use(
   cors({
     origin: [
@@ -42,12 +41,10 @@ app.use("/api/v1/labour", labourRouter);
 
 app.use("/api/v1/category", categoryRouter);
 
-
 app.use("/api/v1/agriculturalImplements", agriculturalImplementsRouter);
 
 app.use("/api/v1/harvest", harvestRouter);
 
-app.use("/api/v1/attendance", attendanceRouter);
 
 mongoose
   .connect(MONGO_URI)

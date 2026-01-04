@@ -16,7 +16,7 @@ router.post(
 router.get(
     "/",
     authenticate,
-    requireRole([Role.ADMIN]),
+    requireRole([Role.ADMIN, Role.USER]),
     getAllDivisions
 );
 

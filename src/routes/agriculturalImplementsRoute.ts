@@ -16,19 +16,19 @@ router.post("/create",
 
 router.get("/getAll", 
     authenticate, 
-    requireRole([Role.ADMIN]), 
+    requireRole([Role.ADMIN, Role.USER]), 
     getAgriculturalImplements
 );
 
 router.get("/search", 
     authenticate, 
-    requireRole([Role.ADMIN]), 
+    requireRole([Role.ADMIN, Role.USER]), 
     searchAgriculturalImplements
 )
 
 router.get("/:id", 
     authenticate, 
-    requireRole([Role.ADMIN]), 
+    requireRole([Role.ADMIN, Role.USER]), 
     getAgriculturalImplementById
 );
 

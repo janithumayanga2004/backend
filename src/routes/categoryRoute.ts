@@ -18,14 +18,14 @@ router.post(
 router.get(
   "/getAll",
   authenticate,
-  requireRole([Role.ADMIN ]),
+  requireRole([Role.ADMIN, Role.USER]),
   getCategories
 );
 
 router.get(
   "/search",
   authenticate,
-  requireRole([Role.ADMIN]),
+  requireRole([Role.ADMIN, Role.USER]),
   searchCategories
 );
 
@@ -33,7 +33,7 @@ router.get(
 router.get(
   "/:id",
   authenticate,
-  requireRole([Role.ADMIN]),
+  requireRole([Role.ADMIN, Role.USER]),
   getCategoryById
 );
 

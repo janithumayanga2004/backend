@@ -22,16 +22,20 @@ export const createLabour = async (req: AUthRequest, res: Response) => {
 
 export const getLabours = async (req: AUthRequest, res: Response) => {
   try {
-    const labours = await Labour.find();
+    const labours = await Labour.find().populate('divisionId', 'divisionName'); // <-- correct
+
     res.status(200).json({ 
        message: "Labours retrieved", 
-       data: labours });
+       data: labours 
+    });
   } catch (error) {
     res.status(500).json({ 
       message: "Failed to fetch labours", 
-      error });
+      error 
+    });
   }
 };
+
 
 export const getLabourById = async (req: AUthRequest, res: Response) => {
   try {

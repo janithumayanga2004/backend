@@ -17,14 +17,14 @@ router.post(
 router.get(
     "/getAll",
     authenticate,
-    requireRole([Role.ADMIN]),
+    requireRole([Role.ADMIN, Role.USER]),
     getAllHarvests
 )
 
 router.get(
     "/search",
     authenticate,
-    requireRole([Role.ADMIN]),
+    requireRole([Role.ADMIN, Role.USER]),
     searchHarvests
 );
 
@@ -32,7 +32,7 @@ router.get(
 router.get(
     "/:id",
     authenticate,
-    requireRole([Role.ADMIN]),
+    requireRole([Role.ADMIN, Role.USER]),
     getHarvestById
 )
 router.put(

@@ -17,14 +17,14 @@ router.post(
 router.get(
   "/",
   authenticate,
-  requireRole([Role.ADMIN]),
+  requireRole([Role.ADMIN, Role.USER]),
   getEstates
 )
 
 router.get(
   "/search",
   authenticate,
-  requireRole([Role.ADMIN]),
+  requireRole([Role.ADMIN, Role.USER]),
   searchEstates
 )
 
@@ -32,7 +32,7 @@ router.get(
 router.get(
   "/:id",
   authenticate,
-  requireRole([Role.ADMIN]),
+  requireRole([Role.ADMIN, Role.USER]),
   getEstateById
 )
 
